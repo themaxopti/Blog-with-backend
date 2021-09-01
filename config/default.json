@@ -1,0 +1,5 @@
+{
+    "port" : 4000,
+    "jwtSecret": "vladilenMaximilen",
+    "mongoUri" : "mongodb+srv://themaxopti:456852@cluster0.coquf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}
