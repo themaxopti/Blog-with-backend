@@ -82,9 +82,8 @@ exports.login = async function (req, res) {
             { expiresIn: '1h' }
         )
 
-        const decoded = jwt.verify(token,config.get('jwtSecret'))    
 
-        res.json({ token, userId: user.id })
+        res.json({ token: token, userId: user.id, userName: user.userName, userEmail: user.email })
     }
     catch (e) {
         console.log(e)
