@@ -31,4 +31,7 @@ router.post('/login',
 router.get('/authUser',authMiddleware, authController.auth)
 
 
+
+
+
 module.exports = router

@@ -13,6 +13,10 @@ app.use(express.json({extended:true}))
 app.use('/api/auth/',require('./routes/auth.routes'))
 
 
+app.use('/api/',require('./routes/posts.routes'))
+app.use('/api/',require('./routes/todo.routes'))
+
+
 
 async function start() {
     try {

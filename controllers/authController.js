@@ -7,9 +7,12 @@ exports.auth = async function (req, res) {
         console.log(req.user.userId)
 
         const user = await User.findOne({ _id: req.user.userId })
+        // console.log(user)
         if (!user) {
             return res.status(400).json({ message: 'Пользователь не найден' })
         }
+        
+        
         // res.header("Access-Control-Allow-Headers","Content-Type,Authorization")
 
         // const token = jwt.sign(
@@ -18,7 +21,7 @@ exports.auth = async function (req, res) {
         //     { expiresIn: '1h' }
         // )
 
-        res.json({ userId: user.id, userName: user.userName, userEmail: user.email })
+        res.json({ userId: user.id, userName: user.userName, userEmail: user.email,resultCode:200 })
     }
     catch (e) {
         console.log(e)
