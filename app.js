@@ -15,6 +15,7 @@ app.use('/api/auth/',require('./routes/auth.routes'))
 
 app.use('/api/',require('./routes/posts.routes'))
 app.use('/api/',require('./routes/todo.routes'))
+app.use('/api/',require('./routes/users.routes'))
 
 
 

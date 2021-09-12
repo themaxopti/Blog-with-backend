@@ -57,3 +57,36 @@ exports.getPost = async (req, res) => {
 
     }
 }
+
+
+
+
+exports.getAllPosts = async (req, res) => {
+    try {
+      
+        const candidate = await Post.find()
+        console.log(candidate)
+        res.json(candidate)
+
+
+    } catch (e) {
+        res.status(500).json({ message: 'Что-то пошло не так сдесь' })
+
+    }
+}
+
+
+exports.pagination = async (req, res) => {
+    try {
+        const page = req.params.page
+        const limit = 5
+        const offset = limit * (page - 1)
+        const candidate = await Post.find().limit(limit).skip(offset)
+        res.json(candidate)
+
+
+    } catch (e) {
+        res.status(500).json({ message: 'Что-то пошло не так сдесь' })
+
+    }
+}

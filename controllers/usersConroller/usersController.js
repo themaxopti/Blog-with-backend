@@ -91,3 +91,31 @@ exports.login = async function (req, res) {
 }
 
 
+exports.users = async function (req, res) {
+    try {
+        const limit = Number(req.params.limit)
+        const users = await User.find().limit(limit)
+        console.log(req.params.limit)
+
+
+        res.status(201).json(users)
+    }
+    catch (e) {
+        res.status(500).json({ message: 'Что-то пошло не так' })
+    }
+}
+
+
+exports.user = async function (req, res) {
+    try {
+        // console.log(req.)
+        const user = await User.findOne({_id:req.params.userId})
+        console.log(user)
+
+
+        res.status(201).json(user)
+    }
+    catch (e) {
+        res.status(500).json({ message: 'Что-то пошло не так' })
+    }
+}
