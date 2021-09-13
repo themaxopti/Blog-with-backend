@@ -57,3 +57,33 @@ exports.getTodo = async (req, res) => {
 
     }
 }
+
+exports.pagination = async (req, res) => {
+    try {
+        const page = req.params.page
+        const limit = 5
+        const offset = limit * (page - 1)
+        const candidate = await Todo.find().limit(limit).skip(offset)
+        res.json({candidate,currentPage:req.params.page})
+
+
+    } catch (e) {
+        res.status(500).json({ message: 'Что-то пошло не так сдесь' })
+
+    }
+}
+
+
+exports.getAllTodos = async (req, res) => {
+    try {
+      
+        const candidate = await Todo.find()
+        console.log(candidate)
+        res.json(candidate)
+
+
+    } catch (e) {
+        res.status(500).json({ message: 'Что-то пошло не так сдесь' })
+
+    }
+}

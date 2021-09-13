@@ -6,6 +6,8 @@ const authMiddleware = require('../middleware/auth.middleware')
 
 router.post('/todos',authMiddleware, todosController.todos)
 router.get('/todos/:userId?',todosController.getTodos)
+router.get('/allTodos/:page?', todosController.pagination)
+router.get('/alltodo', todosController.getAllTodos)
 router.get('/todos/oneTodo/:todoId?',todosController.getTodo)
 
 
