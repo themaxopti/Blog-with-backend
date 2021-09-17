@@ -3,6 +3,9 @@ const config = require('config')
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const fileService = require('../../services/FileService')
+const File = require('../../models/File')
+
 
 exports.register = async function (req, res) {
     try {
@@ -38,6 +41,7 @@ exports.register = async function (req, res) {
 
         await user.save()
 
+        await fileService.createDir(new File({user:user.id,name:''}))
 
         res.status(201).json({ message: 'Пользователь создан' })
     }

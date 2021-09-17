@@ -21,7 +21,7 @@ exports.auth = async function (req, res) {
         //     { expiresIn: '1h' }
         // )
 
-        res.json({ userId: user.id, userName: user.userName, userEmail: user.email,resultCode:200 })
+        res.json({ userId: user.id,avatar:user.avatar, userName: user.userName, userEmail: user.email,resultCode:200 })
     }
     catch (e) {
         console.log(e)

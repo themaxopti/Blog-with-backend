@@ -7,7 +7,8 @@ const schema = new Schema({
     userName:{type:String,required:true,unique:true},
     posts:[{type:Types.ObjectId,ref:'Post'}],
     todos:[{type:Types.ObjectId,ref:'Todo'}],
-    comments:[{type:Types.ObjectId,ref:'Comment'}]
+    comments:[{type:Types.ObjectId,ref:'Comment'}],
+    avatar:{type:String,default:''}
 })
 
 module.exports = model('User',schema)

@@ -13,7 +13,7 @@ exports.commentsAdd = async (req, res) => {
         
         await comment.save()
 
-        res.json({comment})
+        res.json(comment)
     } catch (e) {
         res.status(500).json({ message: 'Что-то пошло не так сдесь' })
     }

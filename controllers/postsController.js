@@ -20,7 +20,8 @@ exports.posts = async (req, res) => {
 
 
         await post.save()
-        console.log('Все ок на этапе 2')
+
+       
 
         res.status(201).json({ message: 'Пост добавленный' })
     } catch (e) {
@@ -34,13 +35,14 @@ exports.getPosts = async (req, res) => {
     try {
         const userId = req.params.userId
         const candidate = await Post.find({owner:userId})
+      
         res.json(candidate)
 
 
     } catch (e) {
         res.status(500).json({ message: 'Что-то пошло не так cc' })
 
-    }
+    }  
 }
 
 
@@ -65,6 +67,7 @@ exports.getAllPosts = async (req, res) => {
     try {
       
         const candidate = await Post.find()
+        
         console.log(candidate)
         res.json(candidate)
 
