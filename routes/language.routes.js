@@ -120,7 +120,7 @@ router.get('/language/:leng?', async (req, res) => {
         const language = await Language.findOne({ language: leng })
 
         if (!language) {
-            return res.status(400).json('Не найдено')
+            return res.status(400).json({statusCode:200})
         }
 
 

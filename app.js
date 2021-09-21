@@ -22,7 +22,7 @@ app.use('/api/',require('./routes/comments.routes'))
 app.use('/api/files/',require('./routes/file.routes'))
 app.use(express.static('static'))
 
-
+app.use('/api',require('./routes/themes.routes'))
 async function start() {
     try {
         await mongoose.connect(config.get('mongoUri'), {
