@@ -9,7 +9,7 @@ const User = require('../models/User')
 router.patch('/newThemeProject', async (req, res) => {
     try {
       
-        const themeProject = await ThemeProject.User({_id:req.body.id},{theme:req.body.theme},{new:true})
+        const themeProject = await ThemeProject.findOneAndUpdate({_id:"614927b3e73f34d890479ca4"},{theme:req.body.theme},{new:true})
 
 
         await themeProject.save()
@@ -43,7 +43,25 @@ router.patch('/changeThemeUser',authMiddleware, async (req, res) => {
 
 
 
-router.get('/getTheme',authMiddleware, async (req, res) => {
+router.get('/getProjectTheme', async (req, res) => {
+    try {
+        
+        const themeProject = await ThemeProject.findOne({_id:"614927b3e73f34d890479ca4"})
+
+        
+
+
+        res.json(themeProject.theme)
+
+
+    } catch (e) {
+        console.log(e, 'Не верно что-то')
+    }
+})
+
+
+
+router.get('/getTheme', async (req, res) => {
     try {
         
         const themeProject = await User.findOne({_id:req.user.userId})
