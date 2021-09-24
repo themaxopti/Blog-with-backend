@@ -7,7 +7,8 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix my-blog",
-    "dev": "concurrently \" npm run server  \" \"  npm run client \""
+    "webSocet":"nodemon websocet.js",
+    "dev": "concurrently \" npm run server  \" \"  npm run client \"  \"  npm run webSocet  \"  "
   },
   "author": "themaxopti",
   "license": "ISC",
@@ -21,7 +22,8 @@
     "express-validator": "^6.12.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.3",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "ws": "^8.2.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",
