@@ -20,7 +20,10 @@ app.use('/api/',require('./routes/todo.routes'))
 app.use('/api/',require('./routes/users.routes'))
 app.use('/api/',require('./routes/comments.routes'))
 app.use('/api/files/',require('./routes/file.routes'))
+app.use('/api/',require('./routes/messages.routes'))
+app.use('/api/',require('./routes/find.routes'))
 app.use(express.static('static'))
+
 
 app.use('/api',require('./routes/themes.routes'))
 async function start() {
